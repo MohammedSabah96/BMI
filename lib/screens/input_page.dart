@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/calculate_brain.dart';
+import 'package:bmi_calculator/screens/result_saved.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/icon_content.dart';
@@ -25,6 +26,19 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(FontAwesomeIcons.poll),
+              title: Text('Result'),
+              onTap: () {
+                Navigator.pushNamed(context, '/resultSaved');
+              },
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),

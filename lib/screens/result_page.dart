@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/screens/result_saved.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 import '../components/card.dart';
@@ -8,15 +9,15 @@ class ResultPage extends StatelessWidget {
   final String textResult;
   final String interpration;
   ResultPage({
-    @required this.bmiResult,
-    @required this.textResult,
-    @required this.interpration,
+    this.bmiResult,
+    this.textResult,
+    this.interpration,
   });
-  List<String> result=[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
@@ -74,8 +75,10 @@ class ResultPage extends StatelessWidget {
                       ),
                     ),
                     onPress: () {
-                      result.add(bmiResult);
-                      print(result);
+                      ResultSaved(
+                        showResult: bmiResult,
+                      );
+                      Navigator.pushNamed(context, '/resultSaved');
                     },
                   )
                 ],
